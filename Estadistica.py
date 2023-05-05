@@ -66,7 +66,7 @@ class Moda(Estadistica):
                 moda = datos[i]
 
         print(f"Datos ingresados: {datosIniciales}")
-        print(f"La media es: {moda}")
+        print(f"La moda es: {moda}")
 
 datos = [3, 3, -1, 5, -5, 0, 0, -4, 12, 20, 11, -6, -1, 10, 1, 1, 1, 2, -2, -1, 5, 5, 1]
 
@@ -78,3 +78,5 @@ print("\n")
 media.calcular()
 print("\n")
 moda.calcular()
+
+
