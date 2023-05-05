@@ -37,10 +37,10 @@ class Media(Estadistica):
         datosIniciales = np.array(datos)
         sumaTotal = 0
 
-        for i in range(0, len(datos)):
-            sumaTotal += datos[i]
+        for i in range(0, len(datosIniciales)):
+            sumaTotal += datosIniciales[i]
 
-        mediaAritmetica = sumaTotal/len(datos)
+        mediaAritmetica = sumaTotal/len(datosIniciales)
 
         print(f"Datos ingresados: {datosIniciales}")
         print(f"La media es: {mediaAritmetica}")
@@ -51,22 +51,39 @@ class Moda(Estadistica):
 
     def calcular(self):
         datosIniciales = np.array(datos)
-        contadorModa = 0
-        moda = 0
+        maximoContador = 2
+        matrizModa = []
+        matrizRepeticiones = []
+        moda = []
 
-        for i in range(0, len(datos)):
+        for i in range(0, len(datosIniciales)):
             contador = 0
-
-            for j in range(0, len(datos)):
-                if(datos[j] == datos[i]):
+            for j in range(i, len(datosIniciales)):
+                if(datosIniciales[i] == datosIniciales[j]):
                     contador += 1
 
-            if(contador > contadorModa):
-                contadorModa = contador
-                moda = datos[i]
+            if(contador >= maximoContador):
+                maximoContador = contador
+
+                matrizModa.append(datos[i])
+                matrizRepeticiones.append(maximoContador)
+
+        for k in range(0, len(matrizRepeticiones)):
+            if(maximoContador == matrizRepeticiones[k]):
+                moda.append(matrizModa[k])
 
         print(f"Datos ingresados: {datosIniciales}")
-        print(f"La moda es: {moda}")
+        if(len(moda) == 0):
+            print("No hay moda porque los numeros no se repiten")
+        elif(len(moda) == 1):
+            print(f"La moda es: {moda[0]}" )
+        else:
+            print("Los numeros moda son: ", end = "")
+            for l in range(0, len(moda)):
+                if(l == len(moda) - 1):
+                    print(moda[l])
+                else:
+                    print(moda[l], end=", ")
 
 datos = [3, 3, -1, 5, -5, 0, 0, -4, 12, 20, 11, -6, -1, 10, 1, 1, 1, 2, -2, -1, 5, 5, 1]
 
