@@ -16,4 +16,4 @@ y dividiendo el resultado entre el número de datos.
 En la moda se muestra el conjunto de datoss ingresados y posteriormente se detecta cual número se repite más y se
 obtiene el número más repetido
 
-![moda](https://user-images.githubusercontent.com/108247794/236168256-9220a0ca-896e-4bd8-9bc6-2ac9cd4fc32b.png)
+![moda](https://user-images.githubusercontent.com/108247794/236369304-dfaefe44-4557-4059-a9dd-65324399647e.png)
