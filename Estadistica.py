@@ -12,18 +12,20 @@ class Mediana(Estadistica):
     def calcular(self):
         datosIniciales = np.array(datos)
         datosOrdenados = np.array(datos)
+        longitudIniciales = len(datosIniciales)
+        longitudOrdenados = len(datosOrdenados)
 
-        for i in range(0, len(datosIniciales)):
-            for j in range(0, len(datosIniciales) - 1):
+        for i in range(0, longitudIniciales):
+            for j in range(0, longitudIniciales - 1):
                 if(datosOrdenados[j] > datosOrdenados[j + 1]):
                     auxiliar = datosOrdenados[j]      
                     datosOrdenados[j] = datosOrdenados[j + 1]
                     datosOrdenados[j + 1] = auxiliar
 
-        if( len(datos) % 2 == 0):
-            datoCentral = ( datosOrdenados[int( (len(datosOrdenados) + 1)/2 ) - 1] + datosOrdenados[int( (len(datosOrdenados) + 1)/2 )] )/2
+        if( longitudOrdenados % 2 == 0):
+            datoCentral = ( datosOrdenados[int( (longitudOrdenados + 1)/2 ) - 1] + datosOrdenados[int( (longitudOrdenados + 1)/2 )] )/2
         else:
-            datoCentral = datosOrdenados[int( (len(datosOrdenados) + 1)/2 ) - 1]
+            datoCentral = datosOrdenados[int( (longitudOrdenados + 1)/2 ) - 1]
 
         print(f"Datos ingresados: {datosIniciales}")
         print(f"Datos ordenados: {datosOrdenados}")
@@ -36,11 +38,12 @@ class Media(Estadistica):
     def calcular(self):
         datosIniciales = np.array(datos)
         sumaTotal = 0
+        longitudIniciales = len(datosIniciales)
 
-        for i in range(0, len(datosIniciales)):
+        for i in range(0, longitudIniciales):
             sumaTotal += datosIniciales[i]
 
-        mediaAritmetica = sumaTotal/len(datosIniciales)
+        mediaAritmetica = sumaTotal/longitudIniciales
 
         print(f"Datos ingresados: {datosIniciales}")
         print(f"La media es: {mediaAritmetica}")
@@ -51,14 +54,15 @@ class Moda(Estadistica):
 
     def calcular(self):
         datosIniciales = np.array(datos)
+        longitudIniciales = len(datosIniciales)
         maximoContador = 2
         matrizModa = []
         matrizRepeticiones = []
         moda = []
 
-        for i in range(0, len(datosIniciales)):
+        for i in range(0, longitudIniciales):
             contador = 0
-            for j in range(i, len(datosIniciales)):
+            for j in range(i, longitudIniciales):
                 if(datosIniciales[i] == datosIniciales[j]):
                     contador += 1
 
@@ -68,7 +72,9 @@ class Moda(Estadistica):
                 matrizModa.append(datos[i])
                 matrizRepeticiones.append(maximoContador)
 
-        for k in range(0, len(matrizRepeticiones)):
+        longitudRepeticiones = len(matrizRepeticiones)
+
+        for k in range(0, longitudRepeticiones):
             if(maximoContador == matrizRepeticiones[k]):
                 moda.append(matrizModa[k])
 
