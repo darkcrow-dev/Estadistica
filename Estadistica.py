@@ -30,6 +30,7 @@ class Mediana(Estadistica):
         print(f"Datos ingresados: {datosIniciales}")
         print(f"Datos ordenados: {datosOrdenados}")
         print(f"La mediana es: {datoCentral}")
+        return
 
 class Media(Estadistica):
     def __init__(self, datos):
@@ -47,6 +48,7 @@ class Media(Estadistica):
 
         print(f"Datos ingresados: {datosIniciales}")
         print(f"La media es: {mediaAritmetica}")
+        return
 
 class Moda(Estadistica):
     def __init__(self, datos):
@@ -80,9 +82,9 @@ class Moda(Estadistica):
 
         print(f"Datos ingresados: {datosIniciales}")
         if(len(moda) == 0):
-            print("No hay moda porque los numeros no se repiten")
+            return print("No hay moda porque los numeros no se repiten")
         elif(len(moda) == 1):
-            print(f"La moda es: {moda[0]}" )
+            return print(f"La moda es: {moda[0]}" )
         else:
             print("Los numeros moda son: ", end = "")
             for l in range(0, len(moda)):
@@ -90,6 +92,8 @@ class Moda(Estadistica):
                     print(moda[l])
                 else:
                     print(moda[l], end=", ")
+
+            return
 
 datos = [3, 3, -1, 5, -5, 0, 0, -4, 12, 20, 11, -6, -1, 10, 1, 1, 1, 2, -2, -1, 5, 5, 1]
 
